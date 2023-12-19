@@ -96,6 +96,37 @@
           }
         }
       }
+    },
+    "tesla": {
+      "projectType": "library",
+      "root": "projects/tesla",
+      "sourceRoot": "projects/tesla/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tesla/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tesla/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tesla/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tesla/src/test.ts",
+            "tsConfig": "projects/tesla/tsconfig.spec.json",
+            "karmaConfig": "projects/tesla/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
